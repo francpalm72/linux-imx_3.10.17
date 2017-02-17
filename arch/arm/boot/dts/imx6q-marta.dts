@@ -141,7 +141,7 @@
 		};
 	};
 };
-
+	
 &mxcfb1 {
 	status = "okay";
 };

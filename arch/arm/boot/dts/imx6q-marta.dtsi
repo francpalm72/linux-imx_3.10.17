@@ -10,7 +10,7 @@
 
 #include "imx6q-pinfunc.h"
 #include "imx6qdl-base-marta.dtsi"
-
+	
 / {
 	aliases {
 		ipu1 = &ipu2;
