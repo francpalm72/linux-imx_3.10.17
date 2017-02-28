@@ -111,38 +111,38 @@
 			clocks = <&clks 142>;
 		};
 
-		hdmi_core: hdmi_core@00120000 {
-			compatible = "fsl,imx6q-hdmi-core";
-			reg = <0x00120000 0x9000>;
-			clocks = <&clks 124>, <&clks 123>;
-			clock-names = "hdmi_isfr", "hdmi_iahb";
-			status = "disabled";
-		};
+		//hdmi_core: hdmi_core@00120000 {
+			//compatible = "fsl,imx6q-hdmi-core";
+			//reg = <0x00120000 0x9000>;
+			//clocks = <&clks 124>, <&clks 123>;
+			//clock-names = "hdmi_isfr", "hdmi_iahb";
+			//status = "disabled";
+		//};
 
-		hdmi_video: hdmi_video@020e0000 {
-			compatible = "fsl,imx6q-hdmi-video";
-			reg = <0x020e0000 0x1000>;
-			reg-names = "hdmi_gpr";
-			interrupts = <0 115 0x04>;
-			clocks = <&clks 124>, <&clks 123>;
-			clock-names = "hdmi_isfr", "hdmi_iahb";
-			status = "disabled";
-		};
+		//hdmi_video: hdmi_video@020e0000 {
+			//compatible = "fsl,imx6q-hdmi-video";
+			//reg = <0x020e0000 0x1000>;
+			//reg-names = "hdmi_gpr";
+			//interrupts = <0 115 0x04>;
+			//clocks = <&clks 124>, <&clks 123>;
+			//clock-names = "hdmi_isfr", "hdmi_iahb";
+			//status = "disabled";
+		//};
 
-		hdmi_audio: hdmi_audio@00120000 {
-			compatible = "fsl,imx6q-hdmi-audio";
-			clocks = <&clks 124>, <&clks 123>;
-			clock-names = "hdmi_isfr", "hdmi_iahb";
-			dmas = <&sdma 2 22 0>;
-			dma-names = "tx";
-			status = "disabled";
-		};
+		//hdmi_audio: hdmi_audio@00120000 {
+			//compatible = "fsl,imx6q-hdmi-audio";
+			//clocks = <&clks 124>, <&clks 123>;
+			//clock-names = "hdmi_isfr", "hdmi_iahb";
+			//dmas = <&sdma 2 22 0>;
+			//dma-names = "tx";
+			//status = "disabled";
+		//};
 
-		hdmi_cec: hdmi_cec@00120000 {
-			compatible = "fsl,imx6q-hdmi-cec";
-			interrupts = <0 115 0x04>;
-			status = "disabled";
-		};
+		//hdmi_cec: hdmi_cec@00120000 {
+			//compatible = "fsl,imx6q-hdmi-cec";
+			//interrupts = <0 115 0x04>;
+			//status = "disabled";
+		//};
 
 
 		aips-bus@02000000 { /* AIPS1 */
@@ -180,14 +180,14 @@
 			};
 		};
 
-		sata: sata@02200000 {
-			compatible = "fsl,imx6q-ahci";
-			reg = <0x02200000 0x4000>;
-			interrupts = <0 39 0x04>;
-			clocks =  <&clks 154>, <&clks 187>, <&clks 105>;
-			clock-names = "sata", "sata_ref", "ahb";
-			status = "disabled";
-		};
+		//sata: sata@02200000 {
+			//compatible = "fsl,imx6q-ahci";
+			//reg = <0x02200000 0x4000>;
+			//interrupts = <0 39 0x04>;
+			//clocks =  <&clks 154>, <&clks 187>, <&clks 105>;
+			//clock-names = "sata", "sata_ref", "ahb";
+			//status = "disabled";
+		//};
 
 		ipu2: ipu@02800000 {
 			compatible = "fsl,imx6q-ipu";
@@ -206,39 +206,39 @@
 };
 
 &iomuxc {
-	ipu2 {
-		pinctrl_ipu2_1: ipu2grp-1 {
-			fsl,pins = <
-				MX6QDL_PAD_DI0_DISP_CLK__IPU2_DI0_DISP_CLK 0x10
-				MX6QDL_PAD_DI0_PIN15__IPU2_DI0_PIN15       0x10
-				MX6QDL_PAD_DI0_PIN2__IPU2_DI0_PIN02        0x10
-				MX6QDL_PAD_DI0_PIN3__IPU2_DI0_PIN03        0x10
-				MX6QDL_PAD_DI0_PIN4__IPU2_DI0_PIN04        0x80000000
-				MX6QDL_PAD_DISP0_DAT0__IPU2_DISP0_DATA00   0x10
-				MX6QDL_PAD_DISP0_DAT1__IPU2_DISP0_DATA01   0x10
-				MX6QDL_PAD_DISP0_DAT2__IPU2_DISP0_DATA02   0x10
-				MX6QDL_PAD_DISP0_DAT3__IPU2_DISP0_DATA03   0x10
-				MX6QDL_PAD_DISP0_DAT4__IPU2_DISP0_DATA04   0x10
-				MX6QDL_PAD_DISP0_DAT5__IPU2_DISP0_DATA05   0x10
-				MX6QDL_PAD_DISP0_DAT6__IPU2_DISP0_DATA06   0x10
-				MX6QDL_PAD_DISP0_DAT7__IPU2_DISP0_DATA07   0x10
-				MX6QDL_PAD_DISP0_DAT8__IPU2_DISP0_DATA08   0x10
-				MX6QDL_PAD_DISP0_DAT9__IPU2_DISP0_DATA09   0x10
-				MX6QDL_PAD_DISP0_DAT10__IPU2_DISP0_DATA10  0x10
-				MX6QDL_PAD_DISP0_DAT11__IPU2_DISP0_DATA11  0x10
-				MX6QDL_PAD_DISP0_DAT12__IPU2_DISP0_DATA12  0x10
-				MX6QDL_PAD_DISP0_DAT13__IPU2_DISP0_DATA13  0x10
-				MX6QDL_PAD_DISP0_DAT14__IPU2_DISP0_DATA14  0x10
-				MX6QDL_PAD_DISP0_DAT15__IPU2_DISP0_DATA15  0x10
-				MX6QDL_PAD_DISP0_DAT16__IPU2_DISP0_DATA16  0x10
-				MX6QDL_PAD_DISP0_DAT17__IPU2_DISP0_DATA17  0x10
-				MX6QDL_PAD_DISP0_DAT18__IPU2_DISP0_DATA18  0x10
-				MX6QDL_PAD_DISP0_DAT19__IPU2_DISP0_DATA19  0x10
-				MX6QDL_PAD_DISP0_DAT20__IPU2_DISP0_DATA20  0x10
-				MX6QDL_PAD_DISP0_DAT21__IPU2_DISP0_DATA21  0x10
-				MX6QDL_PAD_DISP0_DAT22__IPU2_DISP0_DATA22  0x10
-				MX6QDL_PAD_DISP0_DAT23__IPU2_DISP0_DATA23  0x10
-			>;
-		};
-	};
+	//ipu2 {
+		//pinctrl_ipu2_1: ipu2grp-1 {
+			//fsl,pins = <
+				//MX6QDL_PAD_DI0_DISP_CLK__IPU2_DI0_DISP_CLK 0x10
+				//MX6QDL_PAD_DI0_PIN15__IPU2_DI0_PIN15       0x10
+				//MX6QDL_PAD_DI0_PIN2__IPU2_DI0_PIN02        0x10
+				//MX6QDL_PAD_DI0_PIN3__IPU2_DI0_PIN03        0x10
+				//MX6QDL_PAD_DI0_PIN4__IPU2_DI0_PIN04        0x80000000
+				//MX6QDL_PAD_DISP0_DAT0__IPU2_DISP0_DATA00   0x10
+				//MX6QDL_PAD_DISP0_DAT1__IPU2_DISP0_DATA01   0x10
+				//MX6QDL_PAD_DISP0_DAT2__IPU2_DISP0_DATA02   0x10
+				//MX6QDL_PAD_DISP0_DAT3__IPU2_DISP0_DATA03   0x10
+				//MX6QDL_PAD_DISP0_DAT4__IPU2_DISP0_DATA04   0x10
+				//MX6QDL_PAD_DISP0_DAT5__IPU2_DISP0_DATA05   0x10
+				//MX6QDL_PAD_DISP0_DAT6__IPU2_DISP0_DATA06   0x10
+				//MX6QDL_PAD_DISP0_DAT7__IPU2_DISP0_DATA07   0x10
+				//MX6QDL_PAD_DISP0_DAT8__IPU2_DISP0_DATA08   0x10
+				//MX6QDL_PAD_DISP0_DAT9__IPU2_DISP0_DATA09   0x10
+				//MX6QDL_PAD_DISP0_DAT10__IPU2_DISP0_DATA10  0x10
+				//MX6QDL_PAD_DISP0_DAT11__IPU2_DISP0_DATA11  0x10
+				//MX6QDL_PAD_DISP0_DAT12__IPU2_DISP0_DATA12  0x10
+				//MX6QDL_PAD_DISP0_DAT13__IPU2_DISP0_DATA13  0x10
+				//MX6QDL_PAD_DISP0_DAT14__IPU2_DISP0_DATA14  0x10
+				//MX6QDL_PAD_DISP0_DAT15__IPU2_DISP0_DATA15  0x10
+				//MX6QDL_PAD_DISP0_DAT16__IPU2_DISP0_DATA16  0x10
+				//MX6QDL_PAD_DISP0_DAT17__IPU2_DISP0_DATA17  0x10
+				//MX6QDL_PAD_DISP0_DAT18__IPU2_DISP0_DATA18  0x10
+				//MX6QDL_PAD_DISP0_DAT19__IPU2_DISP0_DATA19  0x10
+				//MX6QDL_PAD_DISP0_DAT20__IPU2_DISP0_DATA20  0x10
+				//MX6QDL_PAD_DISP0_DAT21__IPU2_DISP0_DATA21  0x10
+				//MX6QDL_PAD_DISP0_DAT22__IPU2_DISP0_DATA22  0x10
+				//MX6QDL_PAD_DISP0_DAT23__IPU2_DISP0_DATA23  0x10
+			//>;
+		//};
+	//};
 };

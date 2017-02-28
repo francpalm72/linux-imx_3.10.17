@@ -142,22 +142,22 @@
 	};
 };
 	
-&mxcfb1 {
-	status = "okay";
-};
+//&mxcfb1 {
+	//status = "disable";
+//};
 
-&mxcfb2 {
-	status = "okay";
-};
+//&mxcfb2 {
+	//status = "disable";
+//};
 
-&mxcfb3 {
-	status = "disable";
-};
+//&mxcfb3 {
+	//status = "disable";
+//};
 
-&mxcfb4 {
-	status = "disable";
-};
+//&mxcfb4 {
+	//status = "disable";
+//};
 
-&sata {
-	status = "okay";
-};
+//&sata {
+	//status = "okay";
+//};
