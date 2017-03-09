@@ -926,12 +926,12 @@
 				reg = <0x021b4000 0x4000>;
 			};
 	
-			weim: weim@021b8000 {
-				compatible = "fsl,imx6q-weim";
-				reg = <0x021b8000 0x4000>;
-				interrupts = <0 14 0x04>;
-				clocks = <&clks 196>;
-			};
+			//weim: weim@021b8000 {
+			//	compatible = "fsl,imx6q-weim";
+			//	reg = <0x021b8000 0x4000>;
+			//	interrupts = <0 14 0x04>;
+			//	clocks = <&clks 196>;
+			//};
 
 			ocotp: ocotp-ctrl@021bc000 {
 				compatible = "syscon";
@@ -954,25 +954,25 @@
 				interrupts = <0 109 0x04>;
 			};
 
-			audmux: audmux@021d8000 {
-				compatible = "fsl,imx6q-audmux", "fsl,imx31-audmux";
-				reg = <0x021d8000 0x4000>;
-				status = "disabled";
-			};
+			//audmux: audmux@021d8000 {
+			//	compatible = "fsl,imx6q-audmux", "fsl,imx31-audmux";
+			//	reg = <0x021d8000 0x4000>;
+			//	status = "disabled";
+			//};
 
-			mipi_csi: mipi_csi@021dc000 {
-				compatible = "fsl,imx6q-mipi-csi2";
-				reg = <0x021dc000 0x4000>;
-				interrupts = <0 100 0x04>, <0 101 0x04>;
-				clocks = <&clks 138>, <&clks 53>, <&clks 204>;
-				/* Note: clks 138 is hsi_tx, however, the dphy_c
-				 * hsi_tx and pll_refclk use the same clk gate.
-				 * In current clk driver, open/close clk gate do
-				 * use hsi_tx for a temporary debug purpose.
-				 */
-				clock-names = "dphy_clk", "pixel_clk", "cfg_clk";
-				status = "disabled";
-			};
+			//mipi_csi: mipi_csi@021dc000 {
+			//	compatible = "fsl,imx6q-mipi-csi2";
+			//	reg = <0x021dc000 0x4000>;
+			//	interrupts = <0 100 0x04>, <0 101 0x04>;
+			//	clocks = <&clks 138>, <&clks 53>, <&clks 204>;
+			//	/* Note: clks 138 is hsi_tx, however, the dphy_c
+			//	 * hsi_tx and pll_refclk use the same clk gate.
+			//	 * In current clk driver, open/close clk gate do
+			//	 * use hsi_tx for a temporary debug purpose.
+			//	 */
+			//	clock-names = "dphy_clk", "pixel_clk", "cfg_clk";
+			//	status = "disabled";
+			//};
 
 			vdoa@021e4000 {
 				compatible = "fsl,imx6q-vdoa";
@@ -1059,9 +1059,9 @@
 	 ecspi1 {
         pinctrl_ecspi1_1: ecspi1grp-1 {
              fsl,pins = <
+				MX6QDL_PAD_EIM_D16__ECSPI1_SCLK 0x100b1
                 MX6QDL_PAD_EIM_D17__ECSPI1_MISO 0x100b1
                 MX6QDL_PAD_EIM_D18__ECSPI1_MOSI 0x100b1
-                MX6QDL_PAD_EIM_D16__ECSPI1_SCLK 0x100b1
                 MX6QDL_PAD_KEY_ROW1__ECSPI1_SS0 0x100b1        
                 >;
             };
@@ -1084,23 +1084,25 @@
 	enet {
 		pinctrl_enet_1: enetgrp-1 {
 			fsl,pins = <
-				MX6QDL_PAD_ENET_MDIO__ENET_MDIO       0x1b0b0
 				MX6QDL_PAD_ENET_MDC__ENET_MDC         0x1b0b0
+				MX6QDL_PAD_ENET_MDIO__ENET_MDIO       0x1b0b0
+				MX6QDL_PAD_ENET_REF_CLK__ENET_TX_CLK  0x1b0b0
+				MX6QDL_PAD_ENET_CRS_DV__GPIO1_IO25 		0x80000000 /* RGMII_nRST*/
+                MX6QDL_PAD_ENET_RXD1__GPIO1_IO26   		0x80000000 /* RGMII_INT */
+                
 				MX6QDL_PAD_RGMII_TXC__RGMII_TXC       0x1b0b0
 				MX6QDL_PAD_RGMII_TD0__RGMII_TD0       0x1b0b0
 				MX6QDL_PAD_RGMII_TD1__RGMII_TD1       0x1b0b0
 				MX6QDL_PAD_RGMII_TD2__RGMII_TD2       0x1b0b0
 				MX6QDL_PAD_RGMII_TD3__RGMII_TD3       0x1b0b0
 				MX6QDL_PAD_RGMII_TX_CTL__RGMII_TX_CTL 0x1b0b0
-				MX6QDL_PAD_ENET_REF_CLK__ENET_TX_CLK  0x1b0b0
+				
 				MX6QDL_PAD_RGMII_RXC__RGMII_RXC       0x1b0b0
 				MX6QDL_PAD_RGMII_RD0__RGMII_RD0       0x1b0b0
 				MX6QDL_PAD_RGMII_RD1__RGMII_RD1       0x1b0b0
 				MX6QDL_PAD_RGMII_RD2__RGMII_RD2       0x1b0b0
 				MX6QDL_PAD_RGMII_RD3__RGMII_RD3       0x1b0b0
 				MX6QDL_PAD_RGMII_RX_CTL__RGMII_RX_CTL 0x1b0b0
-				MX6QDL_PAD_ENET_CRS_DV__GPIO1_IO25 0x80000000 /* RGMII_nRST*/
-                MX6QDL_PAD_ENET_RXD1__GPIO1_IO26   0x80000000 /* RGMII_INT */
 			>;
 		};
 	};
@@ -1139,14 +1141,14 @@
 		//};
 	//};
 
-	i2c3 {
-		pinctrl_i2c3_1: i2c3grp-1 {
-			fsl,pins = <
-				MX6QDL_PAD_GPIO_3__I2C3_SCL 0x4001b8b1
-				MX6QDL_PAD_GPIO_6__I2C3_SDA 0x4001b8b1
-			>;
-		};
-	};
+//	i2c3 {
+//		pinctrl_i2c3_1: i2c3grp-1 {
+//			fsl,pins = <
+//				MX6QDL_PAD_GPIO_3__I2C3_SCL 0x4001b8b1
+//				MX6QDL_PAD_GPIO_6__I2C3_SDA 0x4001b8b1
+//			>;
+//		};
+//	};
 
 	//ipu1 {
 		//pinctrl_ipu1_1: ipu1grp-1 {
